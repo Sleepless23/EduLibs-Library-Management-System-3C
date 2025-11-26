@@ -1,0 +1,44 @@
+Book Management
+
+Add, edit, delete books
+title, author, genre, quantity
+Search books
+
+
+Student Management
+
+Register students (name, class, school, contact)
+Edit and view student records
+
+
+Borrowing & Returning
+
+Borrow books if copies are available
+Auto-generate due dates
+Track overdue books
+Record book returns
+Maintain borrowing history
+
+
+Reporting
+
+Most borrowed books
+Overdue books list
+Total books per school
+Borrowing history per student
+
+
+User Experience Requirements
+
+
+Simple, clean interface (web or CLI)
+Easy navigation
+
+
+Technical Requirements
+
+Python backend
+Flask web interface or CLI
+SQLite / PostgreSQL database
+Git with feature-branch workflow
+Unit tests for books, students, borrowing, returning
