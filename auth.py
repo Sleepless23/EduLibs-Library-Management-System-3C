@@ -1,6 +1,6 @@
 from data_manager import get_students, save_students
 
-# Hardcoded admin credentials
+
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "admin123"
 
@@ -8,21 +8,20 @@ def register_user():
     print("\n=== User Registration ===")
     students = get_students()
     
-    # Generate student ID
     student_id = input("Create your Student ID: ")
     
     if student_id in students:
         print("✗ Student ID already exists! Please try logging in.")
         return None
     
-    # Get user details
+  
     name = input("Enter your Full Name: ")
     class_name = input("Enter your Class: ")
     school = input("Enter your School: ")
     contact = input("Enter your Contact Number: ")
     password = input("Create a Password: ")
     
-    # Save student data
+ 
     students[student_id] = {
         'name': name,
         'class': class_name,
