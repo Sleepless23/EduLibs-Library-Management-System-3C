@@ -75,9 +75,28 @@ def delete_book():
         print("✓ Book deleted!")
     else:
         print("Deletion cancelled.")
+        
+def display_books():
+    print("\n--- Current Books in Library ---")
+    books = get_books()
+
+    if not books:
+        print("No books found!")
+        return
+
+    print("\n" + "="*80)
+    print(f"{'Book ID':<12} {'Title':<35} {'Author':<25} {'Available':<10}")
+    print("-"*80)
+
+    for book_id, book in books.items():
+        print(f"{book_id:<12} {book['title']:<35} {book['author']:<25} {book['available']}/{book['quantity']}")
+
+    print("="*80)
 
 def book_management_menu():
     while True:
+        display_books()
+        
         print("\n" + "="*50)
         print("=== Book Management ===")
         print("="*50)
