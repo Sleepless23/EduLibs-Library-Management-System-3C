@@ -4,7 +4,9 @@ def add_new_book():
     print("\n--- Add New Book ---")
     books = get_books()
     
-    book_id = input("Enter Book ID (or 'cancel' to go back): ")
+    print("(Type 'cancel' to go back)")
+    
+    book_id = input("Enter Book ID: ")
     if book_id.lower() == 'cancel':
         print("Operation cancelled.")
         return
@@ -13,17 +15,17 @@ def add_new_book():
         print("Book ID already exists!")
         return
     
-    title = input("Enter Book Title (or 'cancel' to go back): ")
+    title = input("Enter Book Title: ")
     if title.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    author = input("Enter Author (or 'cancel' to go back): ")
+    author = input("Enter Author: ")
     if author.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    quantity = input("Enter Quantity (or 'cancel' to go back): ")
+    quantity = input("Enter Quantity: ")
     if quantity.lower() == 'cancel':
         print("Operation cancelled.")
         return
@@ -44,7 +46,9 @@ def edit_book_info():
     print("\n--- Edit Book Info ---")
     books = get_books()
     
-    book_id = input("Enter Book ID to edit (or 'cancel' to go back): ")
+    print("(Type 'cancel' to go back)")
+    
+    book_id = input("Enter Book ID to edit: ")
     if book_id.lower() == 'cancel':
         print("Operation cancelled.")
         return
@@ -90,7 +94,9 @@ def delete_book():
     print("\n--- Delete Book ---")
     books = get_books()
     
-    book_id = input("Enter Book ID to delete (or 'cancel' to go back): ")
+    print("(Type 'cancel' to go back)")
+    
+    book_id = input("Enter Book ID to delete: ")
     if book_id.lower() == 'cancel':
         print("Operation cancelled.")
         return
