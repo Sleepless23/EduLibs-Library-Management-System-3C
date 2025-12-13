@@ -21,17 +21,39 @@ def register_student():
     print("\n--- Register Student (Admin) ---")
     students = get_students()
     
-    student_id = input("Enter Student ID: ")
+    student_id = input("Enter Student ID (or 'cancel' to go back): ")
+    if student_id.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if student_id in students:
         print("Student ID already exists!")
         return
     
-    name = input("Enter Student Name: ")
-    class_name = input("Enter Class: ")
-    school = input("Enter School: ")
-    contact = input("Enter Contact: ")
-    password = input("Set Password for Student: ")
+    name = input("Enter Student Name (or 'cancel' to go back): ")
+    if name.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    class_name = input("Enter Class (or 'cancel' to go back): ")
+    if class_name.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    school = input("Enter School (or 'cancel' to go back): ")
+    if school.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    contact = input("Enter Contact (or 'cancel' to go back): ")
+    if contact.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    password = input("Set Password for Student (or 'cancel' to go back): ")
+    if password.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     students[student_id] = {
         'name': name,
@@ -49,7 +71,10 @@ def edit_student_details():
     print("\n--- Edit Student Details ---")
     students = get_students()
     
-    student_id = input("Enter Student ID: ")
+    student_id = input("Enter Student ID (or 'cancel' to go back): ")
+    if student_id.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if student_id not in students:
         print("Student not found!")
@@ -61,12 +86,27 @@ def edit_student_details():
     print(f"Class: {student.get('class', 'N/A')}")
     print(f"School: {student.get('school', 'N/A')}")
     print(f"Contact: {student.get('contact', 'N/A')}")
-    print("\nLeave blank to keep current value")
+    print("\nLeave blank to keep current value or type 'cancel' to abort")
     
     name = input("Enter new Name: ")
+    if name.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
     class_name = input("Enter new Class: ")
+    if class_name.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
     school = input("Enter new School: ")
+    if school.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
     contact = input("Enter new Contact: ")
+    if contact.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if name:
         students[student_id]['name'] = name

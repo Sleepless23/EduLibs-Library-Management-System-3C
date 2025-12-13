@@ -4,15 +4,31 @@ def add_new_book():
     print("\n--- Add New Book ---")
     books = get_books()
     
-    book_id = input("Enter Book ID: ")
+    book_id = input("Enter Book ID (or 'cancel' to go back): ")
+    if book_id.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if book_id in books:
         print("Book ID already exists!")
         return
     
-    title = input("Enter Book Title: ")
-    author = input("Enter Author: ")
-    quantity = int(input("Enter Quantity: "))
+    title = input("Enter Book Title (or 'cancel' to go back): ")
+    if title.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    author = input("Enter Author (or 'cancel' to go back): ")
+    if author.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    quantity = input("Enter Quantity (or 'cancel' to go back): ")
+    if quantity.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
+    quantity = int(quantity)
     
     books[book_id] = {
         'title': title,
@@ -28,7 +44,10 @@ def edit_book_info():
     print("\n--- Edit Book Info ---")
     books = get_books()
     
-    book_id = input("Enter Book ID to edit: ")
+    book_id = input("Enter Book ID to edit (or 'cancel' to go back): ")
+    if book_id.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if book_id not in books:
         print("Book not found!")
@@ -38,11 +57,22 @@ def edit_book_info():
     print(f"Title: {books[book_id]['title']}")
     print(f"Author: {books[book_id]['author']}")
     print(f"Quantity: {books[book_id]['quantity']}")
-    print("\nLeave blank to keep current value")
+    print("\nLeave blank to keep current value or type 'cancel' to abort")
     
     title = input("Enter new Title: ")
+    if title.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
     author = input("Enter new Author: ")
+    if author.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
+    
     quantity = input("Enter new Quantity: ")
+    if quantity.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if title:
         books[book_id]['title'] = title
@@ -60,22 +90,27 @@ def delete_book():
     print("\n--- Delete Book ---")
     books = get_books()
     
-    book_id = input("Enter Book ID to delete: ")
+    book_id = input("Enter Book ID to delete (or 'cancel' to go back): ")
+    if book_id.lower() == 'cancel':
+        print("Operation cancelled.")
+        return
     
     if book_id not in books:
         print("Book not found!")
         return
     
     print(f"\nBook to delete: {books[book_id]['title']}")
-    confirm = input("Are you sure? (yes/no): ")
+    confirm = input("Are you sure? (yes/no/cancel): ")
+    
+    if confirm.lower() == 'cancel' or confirm.lower() == 'no':
+        print("Deletion cancelled.")
+        return
     
     if confirm.lower() == 'yes':
         del books[book_id]
         save_books(books)
         print("✓ Book deleted!")
-    else:
-        print("Deletion cancelled.")
-        
+
 def display_books():
     print("\n--- Current Books in Library ---")
     books = get_books()
