@@ -1,1 +1,10 @@
-{}
+{
+    "": {
+        "name": "",
+        "class": "",
+        "school": "",
+        "contact": "",
+        "password": "",
+        "books_borrowed": []
+    }
+}

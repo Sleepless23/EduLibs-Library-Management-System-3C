@@ -1,6 +1,4 @@
 from data_manager import get_students, save_students
-
-# Hardcoded admin credentials
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "admin123"
 
@@ -8,21 +6,42 @@ def register_user():
     print("\n=== User Registration ===")
     students = get_students()
     
-    # Generate student ID
+    print("(Type 'cancel' to go back)")
+    
     student_id = input("Create your Student ID: ")
+    if student_id.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
     
     if student_id in students:
         print("✗ Student ID already exists! Please try logging in.")
         return None
     
-    # Get user details
     name = input("Enter your Full Name: ")
-    class_name = input("Enter your Class: ")
-    school = input("Enter your School: ")
-    contact = input("Enter your Contact Number: ")
-    password = input("Create a Password: ")
+    if name.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
     
-    # Save student data
+    class_name = input("Enter your Class: ")
+    if class_name.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
+    
+    school = input("Enter your School: ")
+    if school.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
+    
+    contact = input("Enter your Contact Number: ")
+    if contact.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
+    
+    password = input("Create a Password: ")
+    if password.lower() == 'cancel':
+        print("Registration cancelled.")
+        return None
+    
     students[student_id] = {
         'name': name,
         'class': class_name,
@@ -41,8 +60,17 @@ def user_login_process():
     print("\n=== User Login ===")
     students = get_students()
     
+    print("(Type 'cancel' to go back)")
+    
     student_id = input("Enter Student ID: ")
+    if student_id.lower() == 'cancel':
+        print("Login cancelled.")
+        return None
+    
     password = input("Enter Password: ")
+    if password.lower() == 'cancel':
+        print("Login cancelled.")
+        return None
     
     if student_id not in students:
         print("✗ Student ID not found!")
@@ -57,8 +85,18 @@ def user_login_process():
 
 def admin_login_process():
     print("\n=== Admin Login ===")
+    
+    print("(Type 'cancel' to go back)")
+    
     username = input("Enter Admin Username: ")
+    if username.lower() == 'cancel':
+        print("Admin login cancelled.")
+        return None
+    
     password = input("Enter Admin Password: ")
+    if password.lower() == 'cancel':
+        print("Admin login cancelled.")
+        return None
     
     if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
         print("✓ Admin login successful!")
