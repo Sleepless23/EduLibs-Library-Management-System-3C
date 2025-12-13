@@ -21,7 +21,9 @@ def register_student():
     print("\n--- Register Student (Admin) ---")
     students = get_students()
     
-    student_id = input("Enter Student ID (or 'cancel' to go back): ")
+    print("(Type 'cancel' to go back)")
+    
+    student_id = input("Enter Student ID: ")
     if student_id.lower() == 'cancel':
         print("Operation cancelled.")
         return
@@ -30,27 +32,27 @@ def register_student():
         print("Student ID already exists!")
         return
     
-    name = input("Enter Student Name (or 'cancel' to go back): ")
+    name = input("Enter Student Name: ")
     if name.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    class_name = input("Enter Class (or 'cancel' to go back): ")
+    class_name = input("Enter Class: ")
     if class_name.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    school = input("Enter School (or 'cancel' to go back): ")
+    school = input("Enter School: ")
     if school.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    contact = input("Enter Contact (or 'cancel' to go back): ")
+    contact = input("Enter Contact: ")
     if contact.lower() == 'cancel':
         print("Operation cancelled.")
         return
     
-    password = input("Set Password for Student (or 'cancel' to go back): ")
+    password = input("Set Password for Student: ")
     if password.lower() == 'cancel':
         print("Operation cancelled.")
         return
@@ -71,7 +73,9 @@ def edit_student_details():
     print("\n--- Edit Student Details ---")
     students = get_students()
     
-    student_id = input("Enter Student ID (or 'cancel' to go back): ")
+    print("(Type 'cancel' to go back)")
+    
+    student_id = input("Enter Student ID: ")
     if student_id.lower() == 'cancel':
         print("Operation cancelled.")
         return
